@@ -1,0 +1,26 @@
+{% extends './base.html'%}
+{% block title %} Actualizar Productos {% endblock %}
+
+
+{% block body%}
+
+<h1>Actualizar producto</h1>
+<form method="POST" action="{{ url_for('actualizar_producto', id=producto['id']) }}">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="{{ producto['nombre'] }}"><br>
+    <label>Cantidad:</label>
+    <input type="number" name="cantidad" value="{{ producto['cantidad'] }}"><br>
+    <label>Precio:</label>
+    <input type="number" step="any" name="precio" value="{{ producto['precio'] }}"><br>
+    <label>Fecha vencimiento:</label>
+    <input type="date" name="fecha_vencimiento" value="{{ producto['fecha_vencimiento'] }}"><br>
+    <label>Categoría:</label>
+    <input type="text" name="categoria" value="{{ producto['categoria'] }}"><br>
+    <input type="submit" value="Actualizar">
+</form>
+
+
+
+
+
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends './base.html'%}
+{% block title %} Agregar Productos {% endblock %}
+
+
+{% block body%}
+
+<h1>Agregar producto</h1>
+    <form method="POST" action="{{ url_for('agregar_producto') }}">
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label>Cantidad:</label>
+        <input type="number" name="cantidad"><br>
+        <label>Precio:</label>
+        <input type="number" step="any" name="precio"><br>
+        <label>Fecha vencimiento:</label>
+        <input type="date" name="fecha_vencimiento"><br>
+        <label>Categoría:</label>
+        <input type="text" name="categoria"><br>
+        <input type="submit" value="Agregar">
+    </form>
+
+
+{% endblock%}
+
+ 

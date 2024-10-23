@@ -1,0 +1,51 @@
+{% extends './base.html'%}
+{% block title %} Productos {% endblock %}
+
+
+      
+
+{% block body%}
+<div class="recuadro">
+    <!-- Contenido del recuadro -->
+    <h2>SEGUNDO PARCIAL TEM-742</h2>
+    <p>NOMBRE: Jose Luis Vargas Figueredo</p>
+    <p>CARNET: 7067223</p>
+</div>
+<h1 class="titulo-centrado">Gestión de Productos</h1>
+
+
+    <ul>
+        <a href="{{ url_for('agregar_form') }}">Agregar producto</a>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Fecha Vencimiento</th>
+                <th>Categoría</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+            </tr>
+            {% for producto in session['productos'] %}
+            <tr>
+                <td>{{ producto['id'] }}</td>
+                <td>{{ producto['nombre'] }}</td>
+                <td>{{ producto['cantidad'] }}</td>
+                <td>{{ producto['precio'] }}</td>
+                <td>{{ producto['fecha_vencimiento'] }}</td>
+                <td>{{ producto['categoria'] }}</td>
+                <td><a href="{{ url_for('actualizar_producto', id=producto['id']) }}">Actualizar</a></td>
+                <td><a href="{{ url_for('eliminar_producto', id=producto['id']) }}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+ 
+    </ul>
+  
+
+{% endblock%}
+
+ 
